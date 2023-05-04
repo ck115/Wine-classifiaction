@@ -25,11 +25,13 @@ Overall features are not that great, we don't have super higher correlations wit
 
         sulphates (0.25)
 
-        citric acid (0.23)
+        citric acid (0.23) -- has a strong correlation with volatile acidity so might want to be careful for overfitting 
 
         total sulfur dioxide (-.19)
 
-        density (-0.17)
+        density (-0.17) -- has a very strong correlation with alcohol so might want to leave out for overfitting
+
+
 
     Maybe Features: These are features that will most likely confuse models, and there is a high chance that we should just leave them out. 
                     I didn't remove them because if one of us wanted to test them, we can.
@@ -37,6 +39,7 @@ Overall features are not that great, we don't have super higher correlations wit
         fixed acidity (.12)
 
         chlorides (-.13)
+        
 
 
 
