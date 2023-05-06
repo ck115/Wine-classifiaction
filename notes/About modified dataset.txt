@@ -15,32 +15,33 @@ Overall features are not that great, we don't have super higher correlations wit
     Important Features: The higher the positve correlation, or the lower the negative correlation the more effect it has on our dependent variable(quality).
                         the ones with underscores or manufactured ones which are explained in notes section (possibly overfitting features)
 
-        alcohol (0.48)
+        continuos:
+            alcohol (0.48) 
 
-        alcohol_higher (0.4)
+            volatile acidity(-.39)
 
-        volatile acidity(-.39)
+            sulphates (0.25)
 
-        va_high (-.3)
+            citric acid (0.23)
 
-        sulphates (0.25)
+            total sulfur dioxide (-.19)
 
-        citric acid (0.23) -- has a strong correlation with volatile acidity so might want to be careful for overfitting 
-
-        total sulfur dioxide (-.19)
-
-        density (-0.17) -- has a very strong correlation with alcohol so might want to leave out for overfitting
+            density (-0.17) 
 
 
 
     Maybe Features: These are features that will most likely confuse models, and there is a high chance that we should just leave them out. 
                     I didn't remove them because if one of us wanted to test them, we can.
 
-        fixed acidity (.12)
+        continous:
+            fixed acidity (.12)
 
-        chlorides (-.13)
-        
+            chlorides (-.13)
+            
+        binary: 
+            va_high (-.3)
 
+            alcohol_higher (0.4) 
 
 
 
@@ -57,8 +58,9 @@ Notes:
             No missing values whatsoever
 
         Outliers: 
-            There are quite a few outliers in this dataset, and determining whether to keep or not keep is mostly up to determining the value
+            There are a few outliers in this dataset, and determining whether to keep or not keep is mostly up to determining the value
             of the outliers. This is not easy and sometimes not necessary, so I will leave it up to individual implementations to do so.
+        
 
     Accuracy Measure: In all models, we will have to use an accuracy measure that works with imbalanced datasets
 
@@ -67,11 +69,19 @@ Notes:
         Most likely Neural Network implementation does not require this, but for decision trees and KNN, this can help generalization.
         If you decide to bin, make sure the test set is also changed as well.    
 
+        Typically, binning should be done if you do not like accuracy score, and use discritization as a last resort. However, decision trees
+        like more discrete data, but most DT nowdays can handle continous by themselves.
+
     Possible overfitting features: 
         The two features with underscores are helper features that correlate to swtichpoints in the two repsective features
         they mention. The Goal is that they can help make decision regarding the strongest features, and are simiplier version
         that can be used in KNN to reduce time to predict. However including them with the others might lead to overfitting, so
         be carefule and just try with and without them to see what works best.
+
+    Pre-processing for skew-ness:
+        Some of the features in the data have a somewhat right skew to them or close to a gaussian distribution. For 
+        The ones that are highly skewed we should transform them to reduce the severity of their skewness (box-cox).
+        We can alos
 
 
 
