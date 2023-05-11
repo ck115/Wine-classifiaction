@@ -7,8 +7,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.preprocessing import StandardScaler
 
 # Load the wine dataset from a CSV file
-red_train = pd.read_csv('red_wine_train.csv', index_col=0)
-red_test = pd.read_csv('red_wine_test.csv', index_col=0)
+red_train = pd.read_csv('data/red_wine_train.csv', index_col=0)
+red_test = pd.read_csv('data/red_wine_test.csv', index_col=0)
 
 total = pd.concat([red_train, red_test])
 total = total.drop(["quality"], axis=1)
